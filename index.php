@@ -35,6 +35,7 @@ foreach($urlPath as $item)
 		case 'account': $urlCrt[]='داشبورد';break;
 		case 'setting': $urlCrt[]='تنظیمات';break;
 		case 'list': $urlCrt[]='لیست';break;
+		case 'news': $urlCrt[]='اخبار';break;
 		case 'add': $urlCrt[]='افزودن';break;
 		case 'edit': $urlCrt[]='ویرایش';break;
 		case 'tools': $urlCrt[]='ابزار';break;
@@ -128,6 +129,7 @@ switch($urlPath[0])
 					break;
 				case 'news':
 					switch($urlPath[2]){
+						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/news/list.php';
 							break;
