@@ -126,6 +126,22 @@ switch($urlPath[0])
 				case '':
 					require_once 'app/controller/account/admin/home.php';
 					break;
+				case 'news':
+					switch($urlPath[2]){
+						case 'list':
+							require_once 'app/controller/account/admin/news/list.php';
+							break;
+						case 'add':
+							require_once 'app/controller/account/admin/news/add.php';
+							break;
+						case 'edit':
+							require_once 'app/controller/account/admin/news/edit.php';
+							break;
+						default:
+							header('location/404');
+							break;
+					}
+					break;
 				default:
 					die(header('location:/404'));
 					break;
