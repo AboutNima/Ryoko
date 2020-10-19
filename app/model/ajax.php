@@ -15,7 +15,8 @@ switch($urlPath[1])
 									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
 									if(isset($_POST['data']))
 									{
-
+										$data=$_POST['data'];
+										
 									}
 									break;
 							}
