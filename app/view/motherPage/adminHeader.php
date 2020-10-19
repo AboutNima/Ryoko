@@ -87,18 +87,7 @@
 					endif;
 					?>
                     <li class="title"> آموزشگاه </li>
-                    <li><a href="/account/students/list"><i class="fa fa-users"></i><p>کارآموزان</p></a></li>
-                    <li><a href="/account/consumingMaterials/list"><i class="fa fa-wrench"></i><p>مواد مصرفی</p></a></li>
-                    <li>
-                        <span><i class="fad fa-qrcode"></i><p> سیستم اسکن مکانیزه </p>
-                            <div class="dropdown">
-                                <ul>
-                                    <li><a href="/account/mechanizedScanning/tools/list"><i class="fas fa-circle"></i><p>  ابزار  </p></a></li>
-                                    <li><a href="/account/mechanizedScanning/equipments/list"><i class="fas fa-circle"></i><p>  تجهیزات و امکانات  </p></a></li>
-                                </ul>
-                            </div>
-						</span>
-                    </li>
+                    <li><a href="/account/news/list"><i class="fa fa-newspaper"></i><p>اخبار</p></a></li>
                     <li class="title"> حسابداری </li>
                     <li><a href="/account/accounting/title/list"><i class="fa fa-list"></i><p> سرفصل ها </p></a></li>
                 </ul>
