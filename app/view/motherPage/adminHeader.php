@@ -60,7 +60,7 @@
     <div class="aside-right">
         <div class="header">
             <div class="top">
-                <p> اتوماسیون هورباد </p>
+                <p> پنل مدیریت ریوکو </p>
                 <span id="minimizeAside"><i class="fal fa-bars"></i></span>
                 <span id="hideAside"><i class="fal fa-times"></i></span>
             </div>
