@@ -20,4 +20,8 @@ $(document).ready(function(){
             enabled: false
         }
     });
+    CKEDITOR.replace('description');
+    $('input[name="data[title]"]').keyup(function(){
+       $('input[name="data[link]"]').val($(this).val().split(' ').join('-'))
+    });
 })
