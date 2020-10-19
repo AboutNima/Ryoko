@@ -1,0 +1,76 @@
+body{
+    background: #ededed;
+}
+
+// Start page
+.page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 670px;
+    .header{
+        position: relative;
+        border-radius: 15px 15px 0 0;
+        height: 180px;
+        background: url("/public/account/admin/login/media/background.jpg") center center;
+        background-size: cover;
+        overflow: hidden;
+        &:before{
+            content: 'ورود به حساب مدیریت';
+            text-align: center;
+            line-height: 180px;
+            color: #fff;
+            font-weight: 300;
+            font-size: 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.55);
+        }
+    }
+    .body{
+        padding: 50px 75px;
+        background: #fff;
+        border-radius: 0 0 15px 15px;
+        box-shadow: -14px 14px 50px 0 rgba(0,0,0,0.1);
+        a{
+            display: inline-block;
+            padding: 10px;
+            margin-right: -10px;
+            font-size: 13px;
+            color: #2c6ede;
+            i{
+                vertical-align: middle;
+                margin-right: 5px;
+                font-size: 15px;
+            }
+        }
+    }
+
+    // Start responsive
+    @media(max-width: 720px){
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 25px;
+        transform: none;
+        margin: auto;
+        max-width: 100%;
+    }
+    @media(max-width: 575px){
+        .body{
+            padding: 30px 50px;
+        }
+    }
+    @media(max-height: 720px){
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        padding: 25px;
+        margin: auto;
+    }
+}
