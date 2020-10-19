@@ -29,7 +29,7 @@
 							<td><?php echo $num++ ?></td>
 							<td><?php echo $item->title; ?></td>
 							<td><?php echo $item->demo; ?></td>
-							<td><?php echo json_decode($item->keywords); ?></td>
+							<td><?php echo implode('، ',json_decode($item->keywords)); ?></td>
 							<td><?php echo $calendar->date("j F Y",$item->archiveDate); ?></td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>

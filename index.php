@@ -13,7 +13,7 @@ $ini=parse_ini_file('config.ini.php',true,INI_SCANNER_TYPED);
 
 // Include Model File
 $model=[
-	'jDateTime','DataValidation/Validation','function'
+	'jDateTime','DataValidation/Validation','function','Upload'
 ];
 
 if(!is_array($model)) $model=[$model];
