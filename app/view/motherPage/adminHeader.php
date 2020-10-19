@@ -86,8 +86,16 @@
 					<?php
 					endif;
 					?>
-                    <li class="title"> آموزشگاه </li>
-                    <li><a href="/account/news/list"><i class="fa fa-newspaper"></i><p>اخبار</p></a></li>
+                    <li class="title"> مدیریت سایت </li>
+                    <li><span><i class="fa fa-newspaper"></i><p>اخبار</p>
+                            <div class="dropdown">
+                                <ul>
+                                    <li><a href="/account/news/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                    <li><a href="/account/news/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                </ul>
+                            </div>
+                        </span>
+                    </li>
                     <li class="title"> حسابداری </li>
                     <li><a href="/account/accounting/title/list"><i class="fa fa-list"></i><p> سرفصل ها </p></a></li>
                 </ul>

@@ -1,8 +1,8 @@
 <div class="block">
 	<div class="header">
 		<div class="title">
-			<h6> کارآموزان ثبت شده </h6>
-			<p> در این قسمت میتوانید کارآموزان ثبت شده را مدیریت و یا کارآموز جدید ثبت کنید </p>
+			<h6> اخبار ثبت شده </h6>
+			<p> در این قسمت میتوانید اخبار ثبت شده را مدیریت کنید </p>
 		</div>
 	</div>
 	<div class="body">
@@ -38,8 +38,8 @@
 										<i class="fal fa-ellipsis-h"></i>
 									</div>
 									<div class="menu">
-										<a href="/account/students/<?php echo $item->id ?>/information"><span><i class="far fa-file-alt"></i> نمایش </span></a>
-										<a href="#edit" data-id="<?php echo $item->id ?>"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
+										<a href="/news/<?php echo $item->id ?>/information"><span><i class="far fa-file-alt"></i> نمایش </span></a>
+										<a href="/account/news/edit" data-id="<?php echo $item->id ?>"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
 									</div>
 								</div>
 							</td>
