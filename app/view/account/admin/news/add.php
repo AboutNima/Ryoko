@@ -4,7 +4,7 @@
 	</div>
 	<div class="body">
 		<div class="validation-message no-margin top"></div>
-		<form action="/ajax/account/admin/students/add" class="ajax-handler" method="post">
+		<form action="/ajax/account/admin/news/add" class="ajax-handler" method="post">
 			<input type="text" name="Token" value="<?php echo $_SESSION['Token'] ?>" hidden>
 			<div class="row">
 				<div class="col-sm-6">
