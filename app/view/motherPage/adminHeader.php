@@ -82,7 +82,15 @@
 					<?php
 					if($_SESSION['Admin']['id']=='1'):
 						?>
-                        <li><a href="/account/manageAdmins"><i class="fad fa-users-crown"></i><p> مدیریت مدیران </p></a></li>
+                        <li><span><i class="fad fa-users-crown"></i><p> مدیریت مدیران </p>
+                                <div class="dropdown">
+                                    <ul>
+                                        <li><a href="/account/manageAdmins/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                        <li><a href="/account/manageAdmins/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                    </ul>
+                                </div>
+                            </span>
+                        </li>
 					<?php
 					endif;
 					?>

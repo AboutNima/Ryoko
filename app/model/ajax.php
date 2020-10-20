@@ -129,6 +129,14 @@ switch($urlPath[1])
 									break;
 							}
 							break;
+						case 'manageAdmins':
+							switch($urlPath[4]){
+								case 'add':
+									break;
+								case 'edit':
+									break;
+							}
+							break;
 					}
 				}else{
 					switch($urlPath[3])
