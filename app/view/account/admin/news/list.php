@@ -29,7 +29,7 @@
 							<td><?php echo $num++ ?></td>
 							<td><?php echo $item->title; ?></td>
 							<td><?php echo $item->demo; ?></td>
-							<td><?php echo json_decode($item->keywords); ?></td>
+							<td><?php echo implode('، ',json_decode($item->keywords)); ?></td>
 							<td><?php echo $calendar->date("j F Y",$item->archiveDate); ?></td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>
@@ -39,7 +39,8 @@
 									</div>
 									<div class="menu">
 										<a href="/news/<?php echo $item->id ?>/information"><span><i class="far fa-file-alt"></i> نمایش </span></a>
-										<a href="/account/news/edit" data-id="<?php echo $item->id ?>"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
+										<a href="/account/news/<?php echo $item->id ?>/edit"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
+										<a href="/account/news/delete" data-id="<?php echo $item->id ?>"><span><i class="far fa-trash"></i> حذف </span></a>
 									</div>
 								</div>
 							</td>

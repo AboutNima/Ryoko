@@ -24,12 +24,13 @@
 				</div>
 				<div class="col-12">
 					<div class="input-mask required" mask-type mask-label="متن">
-						<textarea name="data[description]" rows="3" placeholder="متن خبر را وارد کنید" autocomplete="off"></textarea>
+						<textarea name="data[description]" id="description" rows="3" placeholder="متن خبر را وارد کنید" autocomplete="off"></textarea>
 					</div>
 				</div>
                 <div class="col-sm-8">
-                    <div class="input-mask required" mask-type mask-label="کلیدواژه ها">
-                        <input type="text" name="data[keywords]" placeholder="کلید واژه ها را وارد کنید" autocomplete="off">
+                    <div class="input-mask required" mask-type="tag" mask-label="کلیدواژه ها">
+                        <input type="text" name="data[keywords][]" placeholder="کلید واژه ها را وارد کنید" autocomplete="off">
+                        <p class="text-danger fsize-13 mt-2 fism"> * کلیدواژه ها را با دو فاصله از هم جدا کنید </p>
                     </div>
                 </div>
 				<div class="col-sm-4">
@@ -37,6 +38,11 @@
 						<input class="date-picker" type="text" name="data[archiveDate]" placeholder="تاریخ آرشیو خبر را وارد کنید" autocomplete="off">
 					</div>
 				</div>
+                <div class="col-12">
+                    <div class="input-mask required" mask-type="upload:0.5MB,jpg-jpeg-png-tiff" mask-label="عکس">
+                        <input type="file" name="file">
+                    </div>
+                </div>
 			</div>
             <div class="clearFix">
                 <div class="hr"></div>

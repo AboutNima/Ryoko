@@ -13,7 +13,7 @@ $ini=parse_ini_file('config.ini.php',true,INI_SCANNER_TYPED);
 
 // Include Model File
 $model=[
-	'jDateTime','DataValidation/Validation','function'
+	'jDateTime','DataValidation/Validation','function','Upload'
 ];
 
 if(!is_array($model)) $model=[$model];
@@ -35,6 +35,7 @@ foreach($urlPath as $item)
 		case 'account': $urlCrt[]='داشبورد';break;
 		case 'setting': $urlCrt[]='تنظیمات';break;
 		case 'list': $urlCrt[]='لیست';break;
+		case 'news': $urlCrt[]='اخبار';break;
 		case 'add': $urlCrt[]='افزودن';break;
 		case 'edit': $urlCrt[]='ویرایش';break;
 		case 'tools': $urlCrt[]='ابزار';break;
@@ -128,17 +129,27 @@ switch($urlPath[0])
 					break;
 				case 'news':
 					switch($urlPath[2]){
+						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/news/list.php';
 							break;
 						case 'add':
 							require_once 'app/controller/account/admin/news/add.php';
 							break;
-						case 'edit':
-							require_once 'app/controller/account/admin/news/edit.php';
-							break;
 						default:
-							header('location/404');
+							if(!empty($id=$urlPath[2]))
+							{
+								switch($urlPath[3])
+								{
+									case 'edit':
+										require_once 'app/controller/account/admin/news/edit.php';
+										break;
+									default:
+										die(header('location/404'));
+										break;
+								}
+
+							}
 							break;
 					}
 					break;
