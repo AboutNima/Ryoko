@@ -75,7 +75,7 @@ switch($urlPath[1])
 								case 'edit':
 									$data=$_POST['data'];
 									$data['archiveDate']=convertToGregorian($data['archiveDate']);
-									$data['image']=isset($_FILES['file'])?$_FILES['file']:'';
+									$data['image']=isset($_FILES['file']) ? $_FILES['file']: '';
 									$validation = new Validation($data,[
 										'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
 										'link'=>['required[لینک]','length[لینک,حداکثر,255]:max,255'],
@@ -94,7 +94,8 @@ switch($urlPath[1])
 										]));
 									}
 									$data['keywords']=json_encode($data['keywords']);
-									if(!empty($data['image'])){
+									if(!empty($data['image']))
+									{
 										$lastImage=$db->where('id',$_SESSION['DATA']['News']['EDIT']['ID'])->getOne('News','image')['image'];
 										$upload=new \Verot\Upload\Upload($data['image']);
 										if($upload->uploaded){
@@ -105,23 +106,25 @@ switch($urlPath[1])
 											$upload->process('public/home/media/news');
 											if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
 										}
-										$check=$db->where('id',$_SESSION['DATA']['News']['EDIT']['ID'])->update('News',$data);
-										if($check){
-											unlink($lastImage);
-											die(json_encode([
-												'type'=>'success',
-												'msg'=>'خبر با موفقیت ویرایش شد',
-												'err'=>null,
-												'data'=>null
-											]));
-										}else{
-											die(json_encode([
-												'type'=>'warning',
-												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
-												'err'=>-1,
-												'data'=>null
-											]));
-										}
+									}
+
+									$check=$db->where('id',$_SESSION['DATA']['News']['EDIT']['ID'])->update('News',$data);
+									if($check)
+									{
+										if(!empty($data['image'])) unlink($lastImage);
+										die(json_encode([
+											'type'=>'success',
+											'msg'=>'خبر با موفقیت ویرایش شد',
+											'err'=>null,
+											'data'=>null
+										]));
+									}else{
+										die(json_encode([
+											'type'=>'warning',
+											'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+											'err'=>-1,
+											'data'=>null
+										]));
 									}
 									break;
 							}
