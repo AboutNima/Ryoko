@@ -193,6 +193,7 @@ switch($urlPath[0])
 							}
 							break;
 					}
+					break;
 				default:
 					die(header('location:/404'));
 			}
