@@ -21,6 +21,7 @@
 					<div class="input-mask required" mask-type mask-label="نام کاربری">
 						<input type="text" name="data[username]" placeholder="نام کاربری مدیر را وارد کنید" autocomplete="off">
 					</div>
+                    <p class="text-danger fsize-13 fykm"> * رمز عبور همان نام کاربری می باشد </p>
 				</div>
 				<div class="col-sm-6">
 					<div class="input-mask required" mask-type="select" mask-label="دسترسی">

@@ -132,6 +132,47 @@ switch($urlPath[1])
 						case 'manageAdmins':
 							switch($urlPath[4]){
 								case 'add':
+									$data=$_POST['data'];
+									$validation = new Validation($data,[
+										'name'=>['required[نام]','length[عنوان,حداکثر,75]:max,75'],
+										'surname'=>['required[نام خانوادگی]','length[لینک,حداکثر,75]:max,75'],
+										'username'=>['required[نام کاربری]','usernameCharacter[نام کاربری]'],
+										'access'=>['required[دسترسی]','in[انتخاب شده,دسترسی]:0']
+									]);
+									if($validation->getStatus()){
+										die(json_encode([
+											'type'=>'danger',
+											'msg'=>$validation->getErrors(),
+											'err'=>-1,
+											'data'=>null
+										]));
+									}
+									$data['access']=json_encode($data['access']);
+									$data['password']=cryptPassword($data['username'],$data['username'],'RyokoAdminLogin');
+									$id=$db->insert('Admin',$data);
+									if((bool)$id){
+										die(json_encode([
+											'type'=>'success',
+											'msg'=>'مدیر جدید با موفقیت ثبت شد',
+											'err'=>null,
+											'data'=>null
+										]));
+									}else{
+										if($db->getLastErrno()=="1062"){
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'این نام کاربری قبلا ثبت شده',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+										die(json_encode([
+											'type'=>'warning',
+											'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+											'err'=>0,
+											'data'=>null
+										]));
+									}
 									break;
 								case 'edit':
 									break;
