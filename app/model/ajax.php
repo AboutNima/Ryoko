@@ -176,6 +176,49 @@ switch($urlPath[1])
 									break;
 								case 'edit':
 									break;
+								case 'resetPassword':
+									if(isset($_POST['id'])){
+										$data=$db->where('id',$_POST['id'])->getOne('Admin','username')['username'];
+										$check=$db->where('id',$_POST['id'])->update('Admin',[
+											'password'=>cryptPassword($data,$data,'HBAutomationAdminLogin')
+										]);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'گذرواژه با موفقیت بازنشانی شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'delete':
+									if(isset($_POST['id'])){
+										$check=$db->where('id',$_POST['id'])->delete('Admin',null);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'مدیر با موفقیت حذف شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
 							}
 							break;
 					}
