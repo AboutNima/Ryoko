@@ -175,12 +175,52 @@ switch($urlPath[1])
 									}
 									break;
 								case 'edit':
+									$data=$_POST['data'];
+									$validation = new Validation($data,[
+										'name'=>['required[نام]','length[عنوان,حداکثر,75]:max,75'],
+										'surname'=>['required[نام خانوادگی]','length[لینک,حداکثر,75]:max,75'],
+										'username'=>['required[نام کاربری]','usernameCharacter[نام کاربری]'],
+										'access'=>['required[دسترسی]','in[انتخاب شده,دسترسی]:0']
+									]);
+									if($validation->getStatus()){
+										die(json_encode([
+											'type'=>'danger',
+											'msg'=>$validation->getErrors(),
+											'err'=>-1,
+											'data'=>null
+										]));
+									}
+									$data['access']=json_encode($data['access']);
+									$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Admin',$data);
+									if($check){
+										die(json_encode([
+											'type'=>'success',
+											'msg'=>'مدیر با موفقیت ویرایش شد',
+											'err'=>null,
+											'data'=>null
+										]));
+									}else{
+										if($db->getLastErrno()=="1062"){
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'این نام کاربری قبلا ثبت شده',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+										die(json_encode([
+											'type'=>'warning',
+											'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+											'err'=>0,
+											'data'=>null
+										]));
+									}
 									break;
 								case 'resetPassword':
 									if(isset($_POST['id'])){
 										$data=$db->where('id',$_POST['id'])->getOne('Admin','username')['username'];
 										$check=$db->where('id',$_POST['id'])->update('Admin',[
-											'password'=>cryptPassword($data,$data,'HBAutomationAdminLogin')
+											'password'=>cryptPassword($data,$data,'RyokoAdminLogin')
 										]);
 										if($check){
 											die(json_encode([

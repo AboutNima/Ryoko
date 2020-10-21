@@ -38,7 +38,7 @@
 										<i class="fal fa-ellipsis-h"></i>
 									</div>
 									<div class="menu">
-                                        <a href="/account/news/<?php echo $item->id ?>/edit"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
+                                        <a href="/account/manageAdmins/<?php echo $item->id ?>/edit"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
                                         <a href="#resetPassword" class="balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>"><span><i class="far fa-redo"></i> بازنشانی گذرواژه </span></a>
                                         <a href="#delete" class="balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>"><span><i class="far fa-trash"></i> حذف </span></a>
 									</div>
