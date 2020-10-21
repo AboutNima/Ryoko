@@ -7,7 +7,7 @@ $(document).ready(function(){
             data=$.parseJSON(data)
             validationMessage(false,data.msg,data.type,data.err,'.validation-message')
             if(data.err==null) setTimeout(function(){
-                location.replace('/account/news/list')
+                location.replace('/account/articles/list')
             },1500)
         })
     })

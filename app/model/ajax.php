@@ -384,7 +384,7 @@ switch($urlPath[1])
 											}
 										}
 
-										$check=$db->where('id',$_SESSION['DATA']['News']['ID'])->update('Articles',$data);
+										$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Articles',$data);
 										if($check){
 											if(!empty($data['image'])) unlink($lastImage);
 											die(json_encode([

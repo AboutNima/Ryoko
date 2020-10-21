@@ -31,7 +31,7 @@
 							<td><?php echo $item->title; ?></td>
 							<td><?php echo $item->demo; ?></td>
 							<td><?php echo implode('، ',json_decode($item->keywords)); ?></td>
-							<td><?php echo $item->views; ?></td>
+							<td><?php echo $item->view; ?></td>
 							<td><?php echo $item->score; ?></td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>
