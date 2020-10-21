@@ -146,11 +146,9 @@ switch($urlPath[0])
 										break;
 									default:
 										die(header('location/404'));
-										break;
 								}
 
 							}
-							break;
 					}
 					break;
 				case 'manageAdmins':
@@ -174,9 +172,29 @@ switch($urlPath[0])
 							}
 					}
 					break;
+				case 'articles':
+					switch($urlPath[2]){
+						case '':
+						case 'list':
+							require_once 'app/controller/account/admin/articles/list.php';
+							break;
+						case 'add':
+							require_once 'app/controller/account/admin/articles/add.php';
+							break;
+						default:
+							if(!empty($id=$urlPath[2])){
+								switch($urlPath[3]){
+									case 'edit':
+										require_once 'app/controller/account/admin/articles/edit.php';
+										break;
+									default:
+										die(header('location:/404'));
+								}
+							}
+							break;
+					}
 				default:
 					die(header('location:/404'));
-					break;
 			}
 
 		}else die(header('location:/404'));
