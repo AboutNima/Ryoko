@@ -113,6 +113,7 @@
                             </div>
                         </span>
                     </li>
+                    <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
                     <li class="title"> حسابداری </li>
                     <li><a href="/account/accounting/title/list"><i class="fa fa-list"></i><p> سرفصل ها </p></a></li>
                 </ul>

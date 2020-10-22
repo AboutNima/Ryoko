@@ -194,6 +194,14 @@ switch($urlPath[0])
 							break;
 					}
 					break;
+				case 'comments':
+					switch($urlPath[2]){
+						case '':
+						case 'list':
+							require_once 'app/controller/account/admin/comments/list.php';
+							break;
+					}
+					break;
 				default:
 					die(header('location:/404'));
 			}
