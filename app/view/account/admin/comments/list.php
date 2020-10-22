@@ -16,6 +16,7 @@
 					<th> ایمیل </th>
 					<th> متن </th>
 					<th> عنوان مقاله </th>
+					<th> وضعیت </th>
 					<th> تاریخ ثبت </th>
 					<th> گزینه ها </th>
 				</tr>
@@ -30,9 +31,15 @@
 							<td><?php echo $num++ ?></td>
 							<td><?php echo $item->name; ?></td>
 							<td><?php echo $item->phoneNumber; ?></td>
-							<td><?php echo $item->email ?></td>
+							<td>
+                                <?php if(empty($item->email)): ?>
+                                <span class="label label-warning">ثبت نشده</span>
+                                <?php else: echo $item->email; endif; ?>
+                            </td>
 							<td><?php echo $item->text ?></td>
 							<td><?php echo $item->title ?></td>
+                            <td><a href="#accept" class="btn btn-success ml-1 balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>">تایید</a>
+                                <a href="#delete" class="btn btn-danger mr-1 balloon" balloon-timeout="0" balloon-position="left" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>">رد</a></td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>
 								<div class="more">
@@ -40,9 +47,7 @@
 										<i class="fal fa-ellipsis-h"></i>
 									</div>
 									<div class="menu">
-										<a href="/account/manageAdmins/<?php echo $item->id ?>/edit"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
-										<a href="#resetPassword" class="balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>"><span><i class="far fa-redo"></i> بازنشانی گذرواژه </span></a>
-										<a href="#delete" class="balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>"><span><i class="far fa-trash"></i> حذف </span></a>
+										<a href="/articles/<?php echo $item->aId ?>"><span><i class="far fa-file-alt"></i> نمایش مقاله </span></a>
 									</div>
 								</div>
 							</td>

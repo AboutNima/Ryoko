@@ -425,6 +425,50 @@ switch($urlPath[1])
 									break;
 							}
 							break;
+						case 'comments':
+							switch($urlPath[4]){
+								case 'accept':
+									if(isset($_POST['id'])){
+										$check=$db->where('id',$_POST['id'])->update('Comments',['status'=>'1']);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'نظر با موفقیت تایید شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'delete':
+									if(isset($_POST['id'])){
+										$check=$db->where('id',$_POST['id'])->delete('Comments',null);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'نظر با موفقیت رد شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+							}
+							break;
 					}
 				}else{
 					switch($urlPath[3])
