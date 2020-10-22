@@ -407,6 +407,7 @@ switch($urlPath[1])
 									if(isset($_POST['id'])){
 										$check=$db->where('id',$_POST['id'])->delete('Articles',null);
 										if($check){
+											$check=$db->where('articleId',$_POST['id'])->delete('Comments',null);
 											die(json_encode([
 												'type'=>'success',
 												'msg'=>'مقاله با موفقیت حذف شد',
