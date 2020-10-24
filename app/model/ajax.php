@@ -74,8 +74,10 @@ switch($urlPath[1])
 									break;
 								case 'delete':
 									if(isset($_POST['id'])){
+										$lastImage=$db->where('id',$_POST['id'])->getOne('News',['image'])['image'];
 										$check=$db->where('id',$_POST['id'])->delete('News',null);
 										if($check){
+											unlink($lastImage);
 											die(json_encode([
 												'type'=>'success',
 												'msg'=>'خبر با موفقیت حذف شد',
@@ -394,6 +396,14 @@ switch($urlPath[1])
 												'data'=>null
 											]));
 										}else{
+											if($db->getLastErrno()=='1062'){
+												die(json_encode([
+													'type'=>'warning',
+													'msg'=>'این لینک قبلا ثبت شده است.',
+													'err'=>0,
+													'data'=>null
+												]));
+											}
 											die(json_encode([
 												'type'=>'warning',
 												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
@@ -405,9 +415,11 @@ switch($urlPath[1])
 									break;
 								case 'delete':
 									if(isset($_POST['id'])){
+										$lastImage=$db->where('id',$_POST['id'])->getOne('Articles',['image'])['image'];
 										$check=$db->where('id',$_POST['id'])->delete('Articles',null);
 										if($check){
 											$check=$db->where('articleId',$_POST['id'])->delete('Comments',null);
+											unlink($lastImage);
 											die(json_encode([
 												'type'=>'success',
 												'msg'=>'مقاله با موفقیت حذف شد',
@@ -455,6 +467,129 @@ switch($urlPath[1])
 											die(json_encode([
 												'type'=>'success',
 												'msg'=>'نظر با موفقیت رد شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+							}
+							break;
+						case 'projects':
+							switch($urlPath[4]){
+								case 'add':
+									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
+									if(isset($_POST['data']))
+									{
+										$data=$_POST['data'];
+										$data['image']=isset($_FILES['file'])?$_FILES['file']:'';
+										$validation = new Validation($data,[
+											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
+											'description'=>'required[متن]',
+											'image'=>['required[عکس]','upload[jpg.jpeg.png.tiff,512]:png.jpg.jpeg.tiff,512']
+										]);
+										if($validation->getStatus()){
+											die(json_encode([
+												'type'=>'danger',
+												'msg'=>$validation->getErrors(),
+												'err'=>-1,
+												'data'=>null
+											]));
+										}
+										$upload=new \Verot\Upload\Upload($data['image']);
+										if($upload->uploaded){
+											$upload->file_new_name_body=sha1(randomCode(10));
+											$upload->image_resize=true;
+											$upload->image_x=800;
+											$upload->image_y=600;
+											$upload->process('public/home/media/projects');
+											if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
+										}
+										$id=$db->insert('Projects',$data);
+										if((bool)$id){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'پروژه با موفقیت ثبت شد.',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											unlink($data['image']);
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'edit':
+									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
+									if(isset($_POST['data'])){
+										$data=$_POST['data'];
+										$data['image']=isset($_FILES['file'])?$_FILES['file']:'';
+										$validation=new Validation($data,[
+											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
+											'description'=>'required[متن]',
+											'image'=>'upload[jpg.jpeg.png.tiff,512]:png.jpg.jpeg.tiff,512'
+										]);
+										if($validation->getStatus()){
+											die(json_encode([
+												'type'=>'danger',
+												'msg'=>$validation->getErrors(),
+												'err'=>-1,
+												'data'=>null
+											]));
+										}
+										if(!empty($data['image'])){
+											$lastImage=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->getOne('Projects','image')['image'];
+											$upload=new \Verot\Upload\Upload($data['image']);
+											if($upload->uploaded){
+												$upload->file_new_name_body=sha1(randomCode(10));
+												$upload->image_resize=true;
+												$upload->image_x=800;
+												$upload->image_y=600;
+												$upload->process('public/home/media/projects');
+												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
+											}
+										}
+
+										$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Projects',$data);
+										if($check){
+											if(!empty($data['image'])) unlink($lastImage);
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'پروژه با موفقیت ویرایش شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-1,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'delete':
+									if(isset($_POST['id'])){
+										$lastImage=$db->where('id',$_POST['id'])->getOne('Projects',['image'])['image'];
+										$check=$db->where('id',$_POST['id'])->delete('Projects',null);
+										if($check){
+											unlink($lastImage);
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'پروژه با موفقیت حذف شد',
 												'err'=>null,
 												'data'=>null
 											]));

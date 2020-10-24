@@ -9,12 +9,12 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="input-mask required" mask-type mask-label="عنوان">
-						<input type="text" name="data[title]" placeholder="عنوان مقاله را وارد کنید" autocomplete="off">
+						<input type="text" name="data[title]" placeholder="عنوان پروژه را وارد کنید" autocomplete="off">
 					</div>
 				</div>
 				<div class="col-12">
 					<div class="input-mask required" mask-type mask-label="متن">
-						<textarea name="data[description]" id="description" rows="3" placeholder="متن مقاله را وارد کنید" autocomplete="off"></textarea>
+						<textarea name="data[description]" id="description" rows="3" placeholder="متن پروژه را وارد کنید" autocomplete="off"></textarea>
 					</div>
 				</div>
 				<div class="col-12">
