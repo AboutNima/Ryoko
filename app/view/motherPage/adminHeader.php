@@ -113,6 +113,15 @@
                             </div>
                         </span>
                     </li>
+                    <li><span><i class="far fa-cogs"></i><p>پروژه ها</p>
+                            <div class="dropdown">
+                                <ul>
+                                    <li><a href="/account/projects/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                    <li><a href="/account/projects/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                </ul>
+                            </div>
+                        </span>
+                    </li>
                     <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
                     <li class="title"> حسابداری </li>
                     <li><a href="/account/accounting/title/list"><i class="fa fa-list"></i><p> سرفصل ها </p></a></li>

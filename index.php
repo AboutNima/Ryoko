@@ -48,6 +48,7 @@ foreach($urlPath as $item)
 		case 'manageAdmins': $urlCrt[]='مدیریت مدیران';break;
 		case 'accounting': $urlCrt[]='حسابداری';break;
 		case 'title': $urlCrt[]='سرفصل ها';break;
+		case 'projects': $urlCrt[]='پروژه ها';break;
 		default: $urlCrt[]=$item;break;
 	}
 }
@@ -137,7 +138,7 @@ switch($urlPath[0])
 							require_once 'app/controller/account/admin/news/add.php';
 							break;
 						default:
-							if(!empty($id=$urlPath[2]))
+							if(!empty($id=(int)$urlPath[2]))
 							{
 								switch($urlPath[3])
 								{
@@ -161,7 +162,7 @@ switch($urlPath[0])
 							require_once 'app/controller/account/admin/manageAdmins/add.php';
 							break;
 						default:
-							if(!empty($id=$urlPath[2])){
+							if(!empty($id=(int)$urlPath[2])){
 								switch($urlPath[3]){
 									case 'edit':
 										require_once 'app/controller/account/admin/manageAdmins/edit.php';
@@ -182,7 +183,7 @@ switch($urlPath[0])
 							require_once 'app/controller/account/admin/articles/add.php';
 							break;
 						default:
-							if(!empty($id=$urlPath[2])){
+							if(!empty($id=(int)$urlPath[2])){
 								switch($urlPath[3]){
 									case 'edit':
 										require_once 'app/controller/account/admin/articles/edit.php';
@@ -204,6 +205,27 @@ switch($urlPath[0])
 					break;
 				default:
 					die(header('location:/404'));
+				case 'projects':
+					switch($urlPath[2]){
+						case '':
+						case 'list':
+							require_once 'app/controller/account/admin/projects/list.php';
+							break;
+						case 'add':
+							require_once 'app/controller/account/admin/projects/add.php';
+							break;
+						default:
+							if(!empty($id=(int)$urlPath[2])){
+								switch($urlPath[3]){
+									case 'edit':
+										require_once 'app/controller/account/admin/projects/edit.php';
+										break;
+									default:
+										die(header('location/404'));
+								}
+							}
+					}
+					break;
 			}
 
 		}else die(header('location:/404'));
