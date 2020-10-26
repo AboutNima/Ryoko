@@ -72,28 +72,6 @@ switch($urlPath[1])
 										}
 									}
 									break;
-								case 'delete':
-									if(isset($_POST['id'])){
-										$lastImage=$db->where('id',$_POST['id'])->getOne('News',['image'])['image'];
-										$check=$db->where('id',$_POST['id'])->delete('News',null);
-										if($check){
-											unlink($lastImage);
-											die(json_encode([
-												'type'=>'success',
-												'msg'=>'خبر با موفقیت حذف شد',
-												'err'=>null,
-												'data'=>null
-											]));
-										}else{
-											die(json_encode([
-												'type'=>'warning',
-												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
-												'err'=>-2,
-												'data'=>null
-											]));
-										}
-									}
-									break;
 								case 'edit':
 									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
 									if(isset($_POST['data'])){
@@ -145,6 +123,28 @@ switch($urlPath[1])
 												'type'=>'warning',
 												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
 												'err'=>-1,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'delete':
+									if(isset($_POST['id'])){
+										$lastImage=$db->where('id',$_POST['id'])->getOne('News',['image'])['image'];
+										$check=$db->where('id',$_POST['id'])->delete('News',null);
+										if($check){
+											unlink($lastImage);
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'خبر با موفقیت حذف شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
 												'data'=>null
 											]));
 										}
@@ -270,8 +270,10 @@ switch($urlPath[1])
 									break;
 								case 'delete':
 									if(isset($_POST['id'])){
+										$lastImage=$db->where('id',$_POST['id'])->getOne('Admin',['image'])['image'];
 										$check=$db->where('id',$_POST['id'])->delete('Admin',null);
 										if($check){
+											unlink($lastImage);
 											die(json_encode([
 												'type'=>'success',
 												'msg'=>'مدیر با موفقیت حذف شد',
