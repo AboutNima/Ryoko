@@ -1,8 +1,8 @@
 <div class="block">
 	<div class="header">
 		<div class="title">
-			<h6> پروژه های ثبت شده </h6>
-			<p> در این قسمت میتوانید پروژه های ثبت شده را مدیریت کنید </p>
+			<h6> شعبه های ثبت شده </h6>
+			<p> در این قسمت میتوانید شعبه های ثبت شده را مدیریت کنید </p>
 		</div>
 	</div>
 	<div class="body">
@@ -12,7 +12,7 @@
 				<tr>
 					<th> ردیف </th>
 					<th> عنوان </th>
-					<th> لینک </th>
+					<th> آدرس </th>
 					<th> تاریخ ثبت </th>
 					<th> گزینه ها </th>
 				</tr>
@@ -26,7 +26,7 @@
 						<tr>
 							<td><?php echo $num++ ?></td>
 							<td><?php echo $item->title; ?></td>
-							<td><?php echo $item->link; ?></td>
+							<td><?php echo $item->address; ?></td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>
 								<div class="more">
@@ -34,8 +34,7 @@
 										<i class="fal fa-ellipsis-h"></i>
 									</div>
 									<div class="menu">
-										<a href="/projects/<?php echo $item->link ?>"><span><i class="far fa-file-alt"></i> نمایش </span></a>
-										<a href="/account/projects/<?php echo $item->id ?>/edit"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
+										<a href="/account/branches/<?php echo $item->id ?>/edit"><span><i class="far fa-file-edit"></i> ویرایش </span></a>
 										<a href="#delete" class="balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>"><span><i class="far fa-trash"></i> حذف </span></a>
 									</div>
 								</div>

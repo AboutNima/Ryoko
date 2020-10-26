@@ -492,6 +492,7 @@ switch($urlPath[1])
 										$data['image']=isset($_FILES['file'])?$_FILES['file']:'';
 										$validation = new Validation($data,[
 											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
+											'link'=>['required[لینک]','length[لینک,حداکثر,255]:max,255'],
 											'description'=>'required[متن]',
 											'image'=>['required[عکس]','upload[jpg.jpeg.png.tiff,512]:png.jpg.jpeg.tiff,512']
 										]);
@@ -522,6 +523,14 @@ switch($urlPath[1])
 											]));
 										}else{
 											unlink($data['image']);
+											if($db->getLastErrno()=='1062'){
+												die(json_encode([
+													'type'=>'warning',
+													'msg'=>'این لینک قبلا ثبت شده است.',
+													'err'=>0,
+													'data'=>null
+												]));
+											}
 											die(json_encode([
 												'type'=>'warning',
 												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
@@ -538,6 +547,7 @@ switch($urlPath[1])
 										$data['image']=isset($_FILES['file'])?$_FILES['file']:'';
 										$validation=new Validation($data,[
 											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
+											'link'=>['required[لینک]','length[لینک,حداکثر,255]:max,255'],
 											'description'=>'required[متن]',
 											'image'=>'upload[jpg.jpeg.png.tiff,512]:png.jpg.jpeg.tiff,512'
 										]);
@@ -572,6 +582,14 @@ switch($urlPath[1])
 												'data'=>null
 											]));
 										}else{
+											if($db->getLastErrno()=='1062'){
+												die(json_encode([
+													'type'=>'warning',
+													'msg'=>'این لینک قبلا ثبت شده است.',
+													'err'=>0,
+													'data'=>null
+												]));
+											}
 											die(json_encode([
 												'type'=>'warning',
 												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
@@ -590,6 +608,98 @@ switch($urlPath[1])
 											die(json_encode([
 												'type'=>'success',
 												'msg'=>'پروژه با موفقیت حذف شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+							}
+							break;
+						case 'branches':
+							switch($urlPath[4]){
+								case 'add':
+									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
+									if(isset($_POST['data'])){
+										$data=$_POST['data'];
+										$validation=new Validation($data,[
+											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
+											'address'=>['required[آدرس]','length[آدرس,حداکثر,250]:max,250']
+										]);
+										if($validation->getStatus()){
+											die(json_encode([
+												'type'=>'danger',
+												'msg'=>$validation->getErrors(),
+												'err'=>-1,
+												'data'=>null
+											]));
+										}
+										$id=$db->insert('Branches',$data);
+										if((bool)$id){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'شعبه با موفقیت ثبت شد.',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'edit':
+									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
+									if(isset($_POST['data'])){
+										$data=$_POST['data'];
+										$validation=new Validation($data,[
+											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
+											'address'=>['required[آدرس]','length[آدرس,حداکثر,250]:max,250']
+										]);
+										if($validation->getStatus()){
+											die(json_encode([
+												'type'=>'danger',
+												'msg'=>$validation->getErrors(),
+												'err'=>-1,
+												'data'=>null
+											]));
+										}
+										$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Branches',$data);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'شعبه با موفقیت ویرایش شد.',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+								case 'delete':
+									if(isset($_POST['id'])){
+										$check=$db->where('id',$_POST['id'])->delete('Branches',null);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'شعبه با موفقیت حذف شد',
 												'err'=>null,
 												'data'=>null
 											]));

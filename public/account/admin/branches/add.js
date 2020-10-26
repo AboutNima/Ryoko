@@ -5,12 +5,8 @@ $(document).ready(function(){
             data=$.parseJSON(data)
             validationMessage(false,data.msg,data.type,data.err,'.validation-message')
             if(data.err==null) setTimeout(function(){
-                location.replace('/account/projects/list')
+                location.replace('/account/branches/list')
             },1500)
         })
     })
-    CKEDITOR.replace('description')
-    $('input[name="data[title]"]').keyup(function(){
-        $('input[name="data[link]"]').val($(this).val().split(' ').join('-'))
-    });
 })

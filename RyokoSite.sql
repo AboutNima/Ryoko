@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 24, 2020 at 08:55 AM
+-- Generation Time: Oct 26, 2020 at 10:44 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -85,6 +85,22 @@ INSERT INTO `Articles` (`id`, `title`, `link`, `description`, `demo`, `keywords`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Branches`
+--
+
+DROP TABLE IF EXISTS `Branches`;
+CREATE TABLE IF NOT EXISTS `Branches` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `address` varchar(250) COLLATE utf8_persian_ci NOT NULL,
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Comments`
 --
 
@@ -142,12 +158,21 @@ DROP TABLE IF EXISTS `Projects`;
 CREATE TABLE IF NOT EXISTS `Projects` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` tinytext COLLATE utf8_persian_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8_persian_ci NOT NULL,
   `description` text COLLATE utf8_persian_ci NOT NULL,
   `image` varchar(255) COLLATE utf8_persian_ci NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `link` (`link`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `Projects`
+--
+
+INSERT INTO `Projects` (`id`, `title`, `link`, `description`, `image`, `createdAt`, `updatedAt`) VALUES
+(1, 'این پروژه صرفا برای تست است', 'این-پروژه-صرفا-برای-تست-است', '<p>این پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست است</p>\r\n', 'public/home/media/projects/73f10ce67c63783a63328e46c7e873eeae99087f.jpg', '2020-10-26 12:36:17', '2020-10-26 12:36:17');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -49,6 +49,7 @@ foreach($urlPath as $item)
 		case 'accounting': $urlCrt[]='حسابداری';break;
 		case 'title': $urlCrt[]='سرفصل ها';break;
 		case 'projects': $urlCrt[]='پروژه ها';break;
+		case 'branches': $urlCrt[]='شعبه ها';break;
 		default: $urlCrt[]=$item;break;
 	}
 }
@@ -203,8 +204,6 @@ switch($urlPath[0])
 							break;
 					}
 					break;
-				default:
-					die(header('location:/404'));
 				case 'projects':
 					switch($urlPath[2]){
 						case '':
@@ -224,8 +223,33 @@ switch($urlPath[0])
 										die(header('location/404'));
 								}
 							}
+							break;
 					}
 					break;
+				case 'branches':
+					switch($urlPath[2]){
+						case '':
+						case 'list':
+							require_once 'app/controller/account/admin/branches/list.php';
+							break;
+						case 'add':
+							require_once 'app/controller/account/admin/branches/add.php';
+							break;
+						default:
+							if(!empty($id=(int)$urlPath[2])){
+								switch($urlPath[3]){
+									case 'edit':
+										require_once 'app/controller/account/admin/branches/edit.php';
+										break;
+									default:
+										die(header('location/404'));
+								}
+							}
+							break;
+					}
+					break;
+				default:
+					die(header('location:/404'));
 			}
 
 		}else die(header('location:/404'));
