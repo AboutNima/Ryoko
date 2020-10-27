@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("a[href='#delete']").on('dblclick',function()
     {
-        $.post('/ajax/account/admin/news/delete',{id:$(this).attr('data-id')},function(data)
+        $.post('/ajax/account/admin/projects/delete',{id:$(this).attr('data-id')},function(data)
         {
             data=$.parseJSON(data)
             validationMessage(false,data.msg,data.type,data.err)

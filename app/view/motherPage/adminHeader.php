@@ -82,7 +82,15 @@
 					<?php
 					if($_SESSION['Admin']['id']=='1'):
 						?>
-                        <li><a href="/account/manageAdmins"><i class="fad fa-users-crown"></i><p> مدیریت مدیران </p></a></li>
+                        <li><span><i class="fad fa-users-crown"></i><p> مدیریت مدیران </p>
+                                <div class="dropdown">
+                                    <ul>
+                                        <li><a href="/account/manageAdmins/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                        <li><a href="/account/manageAdmins/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                    </ul>
+                                </div>
+                            </span>
+                        </li>
 					<?php
 					endif;
 					?>
@@ -96,6 +104,34 @@
                             </div>
                         </span>
                     </li>
+                    <li><span><i class="far fa-file-search"></i><p>مقالات</p>
+                            <div class="dropdown">
+                                <ul>
+                                    <li><a href="/account/articles/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                    <li><a href="/account/articles/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                </ul>
+                            </div>
+                        </span>
+                    </li>
+                    <li><span><i class="far fa-cogs"></i><p>پروژه ها</p>
+                            <div class="dropdown">
+                                <ul>
+                                    <li><a href="/account/projects/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                    <li><a href="/account/projects/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                </ul>
+                            </div>
+                        </span>
+                    </li>
+                    <li><span><i class="far fa-building"></i><p>شعبه ها</p>
+                            <div class="dropdown">
+                                <ul>
+                                    <li><a href="/account/branches/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
+                                    <li><a href="/account/branches/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
+                                </ul>
+                            </div>
+                        </span>
+                    </li>
+                    <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
                     <li class="title"> حسابداری </li>
                     <li><a href="/account/accounting/title/list"><i class="fa fa-list"></i><p> سرفصل ها </p></a></li>
                 </ul>
