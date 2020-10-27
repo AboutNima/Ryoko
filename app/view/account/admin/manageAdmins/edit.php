@@ -7,22 +7,22 @@
 		<form action="/ajax/account/admin/manageAdmins/edit" class="ajax-handler" method="post">
 			<input type="text" name="Token" value="<?php echo $_SESSION['Token'] ?>" hidden>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-lg-3">
 					<div class="input-mask required" mask-type mask-label="نام">
 						<input type="text" name="data[name]" placeholder="نام مدیر را وارد کنید" autocomplete="off" value="<?php echo $data->name ?>">
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-3">
 					<div class="input-mask required" mask-type mask-label="نام خانوادگی">
 						<input type="text" name="data[surname]" placeholder="نام خانوادگی مدیر را وارد کنید" autocomplete="off" value="<?php echo $data->surname ?>">
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-3">
 					<div class="input-mask required" mask-type mask-label="نام کاربری">
 						<input type="text" name="data[username]" placeholder="نام کاربری مدیر را وارد کنید" autocomplete="off" value="<?php echo $data->username ?>">
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-lg-3">
 					<div class="input-mask required" mask-type="select" mask-label="دسترسی">
 						<select name="data[access]">
 							<option value="0">کامل</option>

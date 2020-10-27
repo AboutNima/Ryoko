@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 26, 2020 at 10:44 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Generation Time: Oct 27, 2020 at 08:30 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `Admin` (
 
 INSERT INTO `Admin` (`id`, `name`, `surname`, `username`, `password`, `avatar`, `suspend`, `access`, `createdAt`, `updatedAt`) VALUES
 (1, 'ارسلان', 'احدیان', 'admin', 'd45f072f07bde78166e8f2f96c3dbfe83349b78e37b80293eb4ed99659e0e289', NULL, 0, '[\"0\"]', '2020-10-19 09:05:42', '2020-10-20 11:57:57'),
-(12, 'نیما', 'اسعدی', 'n.ima', '206e445cf751eb8590384f98c865347546eb024c0a38b7e7cfe44693d19623f5', NULL, 0, '\"0\"', '2020-10-21 13:24:15', '2020-10-21 13:24:15');
+(12, 'نیما', 'اسعدی', 'n.ima', '206e445cf751eb8590384f98c865347546eb024c0a38b7e7cfe44693d19623f5', NULL, 0, '\"0\"', '2020-10-21 13:24:15', '2020-10-27 11:21:20');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,14 @@ CREATE TABLE IF NOT EXISTS `Comments` (
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `Comments`
+--
+
+INSERT INTO `Comments` (`id`, `name`, `surname`, `phoneNumber`, `email`, `text`, `articleId`, `status`, `createdAt`, `updatedAt`) VALUES
+(2, 'ارسلان', 'احدیان', '09152368096', NULL, 'این نظر برای تست است و دوست دارد که تست بشود', 2, '0', '2020-10-27 11:24:50', '2020-10-27 11:58:02');
 
 -- --------------------------------------------------------
 
@@ -160,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `Projects` (
   `title` tinytext COLLATE utf8_persian_ci NOT NULL,
   `link` varchar(255) COLLATE utf8_persian_ci NOT NULL,
   `description` text COLLATE utf8_persian_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_persian_ci DEFAULT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),

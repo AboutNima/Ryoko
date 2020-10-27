@@ -29,8 +29,16 @@
 							<td><?php echo $num++ ?></td>
 							<td><?php echo $item->name; ?></td>
 							<td><?php echo $item->username; ?></td>
-							<td><?php echo $item->suspend ?></td>
-							<td><?php echo json_decode($item->access); ?></td>
+							<td>
+                                <?php if($item->suspend=='0'): ?>
+                                <span class="label label-success"> فعال </span>
+                                <?php else: ?>
+                                <span class="label label-danger"> مسدود </span>
+                                <?php endif; ?>
+                            </td>
+							<td>
+                                <?php if(json_decode($item->access)=='0') echo 'کامل'?>
+                            </td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>
 								<div class="more">

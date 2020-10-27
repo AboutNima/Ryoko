@@ -496,7 +496,7 @@ switch($urlPath[1])
 											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
 											'link'=>['required[لینک]','length[لینک,حداکثر,255]:max,255'],
 											'description'=>'required[متن]',
-											'image'=>['required[عکس]','upload[jpg.jpeg.png.tiff,512]:png.jpg.jpeg.tiff,512']
+											'image'=>'upload[jpg.jpeg.png.tiff,512]:png.jpg.jpeg.tiff,512'
 										]);
 										if($validation->getStatus()){
 											die(json_encode([
@@ -506,14 +506,16 @@ switch($urlPath[1])
 												'data'=>null
 											]));
 										}
-										$upload=new \Verot\Upload\Upload($data['image']);
-										if($upload->uploaded){
-											$upload->file_new_name_body=sha1(randomCode(10));
-											$upload->image_resize=true;
-											$upload->image_x=800;
-											$upload->image_y=600;
-											$upload->process('public/home/media/projects');
-											if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
+										if(!empty($data['image'])){
+											$upload=new \Verot\Upload\Upload($data['image']);
+											if($upload->uploaded){
+												$upload->file_new_name_body=sha1(randomCode(10));
+												$upload->image_resize=true;
+												$upload->image_x=800;
+												$upload->image_y=600;
+												$upload->process('public/home/media/projects');
+												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
+											}
 										}
 										$id=$db->insert('Projects',$data);
 										if((bool)$id){

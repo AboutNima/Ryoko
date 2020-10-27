@@ -14,9 +14,7 @@
 					<th> نام و نام خانوادگی </th>
 					<th> شماره موبایل </th>
 					<th> ایمیل </th>
-					<th> متن </th>
 					<th> عنوان مقاله </th>
-					<th> وضعیت </th>
 					<th> تاریخ ثبت </th>
 					<th> گزینه ها </th>
 				</tr>
@@ -36,10 +34,7 @@
                                 <span class="label label-warning">ثبت نشده</span>
                                 <?php else: echo $item->email; endif; ?>
                             </td>
-							<td><?php echo $item->text ?></td>
 							<td><?php echo $item->title ?></td>
-                            <td><a href="#accept" class="btn btn-success ml-1 balloon" balloon-timeout="0" balloon-position="right" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>">تایید</a>
-                                <a href="#delete" class="btn btn-danger mr-1 balloon" balloon-timeout="0" balloon-position="left" balloon-text="دوبار کلیک کنید" data-id="<?php echo $item->id ?>">رد</a></td>
 							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
 							<td>
 								<div class="more">
@@ -47,6 +42,7 @@
 										<i class="fal fa-ellipsis-h"></i>
 									</div>
 									<div class="menu">
+                                        <a href="/account/comments/<?php echo $item->id ?>/information"><span><i class="fa fa-file-alt"></i> دیگر مشخصات </span></a>
 										<a href="/articles/<?php echo $item->aId ?>"><span><i class="far fa-file-alt"></i> نمایش مقاله </span></a>
 									</div>
 								</div>
