@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 27, 2020 at 08:30 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.5
+-- Generation Time: Oct 29, 2020 at 08:28 AM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -126,6 +125,32 @@ CREATE TABLE IF NOT EXISTS `Comments` (
 
 INSERT INTO `Comments` (`id`, `name`, `surname`, `phoneNumber`, `email`, `text`, `articleId`, `status`, `createdAt`, `updatedAt`) VALUES
 (2, 'ارسلان', 'احدیان', '09152368096', NULL, 'این نظر برای تست است و دوست دارد که تست بشود', 2, '0', '2020-10-27 11:24:50', '2020-10-27 11:58:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ContactUs`
+--
+
+DROP TABLE IF EXISTS `ContactUs`;
+CREATE TABLE IF NOT EXISTS `ContactUs` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(75) COLLATE utf8_persian_ci NOT NULL,
+  `surname` varchar(75) COLLATE utf8_persian_ci NOT NULL,
+  `topic` tinytext COLLATE utf8_persian_ci NOT NULL,
+  `phoneNumber` char(11) COLLATE utf8_persian_ci NOT NULL,
+  `status` enum('0','1') COLLATE utf8_persian_ci NOT NULL DEFAULT '0',
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `ContactUs`
+--
+
+INSERT INTO `ContactUs` (`id`, `name`, `surname`, `topic`, `phoneNumber`, `status`, `createdAt`, `updatedAt`) VALUES
+(1, 'ارسلان', 'احدیان', 'ارتقا سایت در جهت بهبود سایت', '09152368096', '0', '2020-10-29 10:54:44', '2020-10-29 11:18:26');
 
 -- --------------------------------------------------------
 
