@@ -51,6 +51,7 @@ foreach($urlPath as $item)
 		case 'projects': $urlCrt[]='پروژه ها';break;
 		case 'branches': $urlCrt[]='شعبه ها';break;
 		case 'comments': $urlCrt[]='نظرات';break;
+		case 'contactUs': $urlCrt[]='تماس با ما';break;
 		default: $urlCrt[]=$item;break;
 	}
 }
@@ -258,6 +259,16 @@ switch($urlPath[0])
 								}
 							}
 							break;
+					}
+					break;
+				case 'contactUs':
+					switch($urlPath[2]){
+						case '':
+						case 'list':
+							require_once 'app/controller/account/admin/contactUs/list.php';
+							break;
+						default:
+							die(header('location/404'));
 					}
 					break;
 				default:

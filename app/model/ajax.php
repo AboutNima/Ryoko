@@ -719,6 +719,30 @@ switch($urlPath[1])
 									break;
 							}
 							break;
+						case 'contactUs':
+							switch($urlPath[4]){
+								case 'read':
+									if(isset($_POST['id'])){
+										$check=$db->where('id',$_POST['id'])->update('ContactUs',['status'=>'1']);
+										if($check){
+											die(json_encode([
+												'type'=>'success',
+												'msg'=>'فرم تماس با ما با موفقیت خوانده شد',
+												'err'=>null,
+												'data'=>null
+											]));
+										}else{
+											die(json_encode([
+												'type'=>'warning',
+												'msg'=>'مشکلی در انجام درخواست شما پیش آمده. با پشتیبان سایت تماس بگیرید و کد ('.$db->getLastErrno().') را اعلام نمایید',
+												'err'=>-2,
+												'data'=>null
+											]));
+										}
+									}
+									break;
+							}
+							break;
 					}
 				}else{
 					switch($urlPath[3])
