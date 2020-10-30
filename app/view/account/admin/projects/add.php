@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="col-12">
-					<div class="input-mask required" mask-type="upload:0.5MB,jpg-jpeg-png-tiff" mask-label="عکس">
+					<div class="input-mask" mask-type="upload:0.5MB,jpg-jpeg-png-tiff" mask-label="عکس">
 						<input type="file" name="file">
 					</div>
 				</div>

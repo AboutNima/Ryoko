@@ -7,12 +7,12 @@
 		<form action="/ajax/account/admin/branches/edit" class="ajax-handler" method="post">
 			<input type="text" name="Token" value="<?php echo $_SESSION['Token'] ?>" hidden>
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-lg-5">
 					<div class="input-mask required" mask-type mask-label="عنوان">
 						<input type="text" name="data[title]" placeholder="عنوان شعبه را وارد کنید" autocomplete="off" value="<?php echo $data->title; ?>">
 					</div>
 				</div>
-				<div class="col-12">
+				<div class="col-lg-7">
 					<div class="input-mask required" mask-type mask-label="آدرس">
 						<input type="text" name="data[address]" placeholder="آدرس شعبه را وارد کنید" autocomplete="off" value="<?php echo $data->address; ?>">
 					</div>
