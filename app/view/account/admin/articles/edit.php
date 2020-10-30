@@ -1,6 +1,12 @@
 <div class="block">
 	<div class="header">
-		<h6>ویرایش مقاله</h6>
+        <div class="title">
+            <h6> ویرایش مقاله (<?php echo $data->title ?>) </h6>
+            <p> در این قسمت می توانید مقاله (<?php echo $data->title ?>) را ویرایش کنید </p>
+        </div>
+        <div class="more float-left">
+            <a href="/account/articles/list" class="back"> بازگشت <i class="far fa-angle-double-left"></i></a>
+        </div>
 	</div>
 	<div class="body">
 		<div class="validation-message no-margin top"></div>
@@ -30,9 +36,9 @@
 				<div class="col-12">
 					<div class="input-mask required" mask-type="tag" mask-label="کلیدواژه ها">
 						<input type="text" name="data[keywords][]" placeholder="کلید واژه ها را وارد کنید" autocomplete="off" value="<?php echo implode('  ',json_decode($data->keywords)); ?>">
-						<p class="text-danger fsize-13 mt-2 fism"> * کلیدواژه ها را با دو فاصله از هم جدا کنید </p>
 					</div>
-				</div>
+                    <p class="text-danger fsize-13 mt-2 fism"> * کلیدواژه ها را با دو فاصله از هم جدا کنید </p>
+                </div>
 				<div class="col-12">
 					<div class="input-mask" mask-type="upload:0.5MB,jpg-jpeg-png-tiff" mask-label="عکس">
 						<input type="file" name="file">

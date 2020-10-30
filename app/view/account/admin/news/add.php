@@ -1,6 +1,12 @@
 <div class="block">
 	<div class="header">
-		<h6>ثبت خبر جدید</h6>
+        <div class="title">
+            <h6> ثبت خبر جدید </h6>
+            <p> در این قسمت می توانید خبر جدید ثبت کنید </p>
+        </div>
+        <div class="more float-left">
+            <a href="/account/news/list" class="back"> بازگشت <i class="far fa-angle-double-left"></i></a>
+        </div>
 	</div>
 	<div class="body">
 		<div class="validation-message no-margin top"></div>

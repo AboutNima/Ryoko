@@ -1,7 +1,13 @@
 <div class="block">
-	<div class="header">
-		<h6>ویرایش خبر</h6>
-	</div>
+    <div class="header">
+        <div class="title">
+            <h6> ویرایش خبر (<?php echo $data->title ?>) </h6>
+            <p> در این قسمت می توانید خبر (<?php echo $data->title ?>) را ویرایش کنید </p>
+        </div>
+        <div class="more float-left">
+            <a href="/account/news/list" class="back"> بازگشت <i class="far fa-angle-double-left"></i></a>
+        </div>
+    </div>
 	<div class="body">
 		<div class="validation-message no-margin top"></div>
 		<form action="/ajax/account/admin/news/edit" class="ajax-handler" method="post">
@@ -30,9 +36,9 @@
 				<div class="col-sm-8">
 					<div class="input-mask required" mask-type="tag" mask-label="کلیدواژه ها">
 						<input type="text" name="data[keywords][]" placeholder="کلید واژه ها را وارد کنید" autocomplete="off" value="<?php echo implode('  ',json_decode($data->keywords)); ?>">
-						<p class="text-danger fsize-13 mt-2 fism"> * کلیدواژه ها را با دو فاصله از هم جدا کنید </p>
 					</div>
-				</div>
+                    <p class="text-danger fsize-13 mt-2 fism"> * کلیدواژه ها را با دو فاصله از هم جدا کنید </p>
+                </div>
 				<div class="col-sm-4">
 					<div class="input-mask required" mask-type mask-label="تاریخ آرشیو">
 						<input class="date-picker" type="text" name="data[archiveDate]" placeholder="تاریخ آرشیو خبر را وارد کنید" autocomplete="off" value="<?php echo $data->archiveDate; ?>">

@@ -5,7 +5,7 @@ $data=$db->where('id',$id)->objectBuilder()->getOne('News',[
 if(empty($data)){
 	die(header('location:/404'));
 }
-$_SESSION['DATA']['News']['EDIT']['ID']=$id;
+$_SESSION['DATA']['News']['ID']=$id;
 $urlCrt[2]=$data->title;
 $script='/public/account/admin/news/add';
 require_once 'app/controller/motherPage/adminHeader.php';

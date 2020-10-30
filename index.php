@@ -35,6 +35,7 @@ foreach($urlPath as $item)
 		case 'account': $urlCrt[]='داشبورد';break;
 		case 'setting': $urlCrt[]='تنظیمات';break;
 		case 'list': $urlCrt[]='لیست';break;
+		case 'articles': $urlCrt[]='مقالات';break;
 		case 'news': $urlCrt[]='اخبار';break;
 		case 'add': $urlCrt[]='افزودن';break;
 		case 'edit': $urlCrt[]='ویرایش';break;
@@ -131,6 +132,9 @@ switch($urlPath[0])
 				case '':
 					require_once 'app/controller/account/admin/home.php';
 					break;
+				case 'manageAdmins':
+					require_once 'app/controller/account/admin/manageAdmins.php';
+					break;
 				case 'news':
 					switch($urlPath[2]){
 						case '':
@@ -152,27 +156,6 @@ switch($urlPath[0])
 										die(header('location/404'));
 								}
 
-							}
-					}
-					break;
-				case 'manageAdmins':
-					switch($urlPath[2]){
-						case '':
-						case 'list':
-							require_once 'app/controller/account/admin/manageAdmins/list.php';
-							break;
-						case 'add':
-							require_once 'app/controller/account/admin/manageAdmins/add.php';
-							break;
-						default:
-							if(!empty($id=(int)$urlPath[2])){
-								switch($urlPath[3]){
-									case 'edit':
-										require_once 'app/controller/account/admin/manageAdmins/edit.php';
-										break;
-									default:
-										die(header('location:/404'));
-								}
 							}
 					}
 					break;
