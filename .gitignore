@@ -1,3 +1,12 @@
 
 .idea/vcs.xml
 *.xml
+.idea/deployment.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/Site.iml
+.idea/deployment.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/Site.iml
+*.iml
