@@ -81,16 +81,8 @@
                     <li><a href="/account"><i class="fad fa-cubes"></i><p> داشبورد </p></a></li>
 					<?php
 					if($_SESSION['Admin']['id']=='1'):
-						?>
-                        <li><span><i class="fad fa-users-crown"></i><p> مدیریت مدیران </p>
-                                <div class="dropdown">
-                                    <ul>
-                                        <li><a href="/account/manageAdmins/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
-                                        <li><a href="/account/manageAdmins/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
-                                    </ul>
-                                </div>
-                            </span>
-                        </li>
+                    ?>
+                        <li><a href="/account/manageAdmins/list"><i class="fad fa-users-crown"></i><p> مدیریت مدیران </p></a></li>
 					<?php
 					endif;
 					?>
@@ -133,8 +125,6 @@
                     </li>
                     <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
                     <li><a href="/account/contactUs/list"><i class="far fa-phone-alt"></i><p>تماس با ما</p></a></li>
-                    <li class="title"> حسابداری </li>
-                    <li><a href="/account/accounting/title/list"><i class="fa fa-list"></i><p> سرفصل ها </p></a></li>
                 </ul>
             </div>
         </div>
@@ -142,9 +132,3 @@
     <div class="page-content">
         <div id="ajax"></div>
         <div class="validation-message no-margin top"></div>
-        <audio id="sendAudio">
-            <source src="/public/account/panel/media/Send.mp3" type="audio/mpeg">
-        </audio>
-        <audio id="receiveAudio">
-            <source src="/public/account/panel/media/Receive.mp3" type="audio/mpeg">
-        </audio>

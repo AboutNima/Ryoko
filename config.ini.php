@@ -3,11 +3,11 @@
 ;/*
 
 [Database]
-host=127.0.0.1
+host=localhost
 user=root
 pass=
-database=RyokoSite
-port=3308
+database=Ryoko
+port=3306
 charset=utf8
 socket=null
 autoReconnect=true

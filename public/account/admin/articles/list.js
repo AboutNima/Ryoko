@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
     $("a[href='#delete']").on('dblclick',function()
     {
         $.post('/ajax/account/admin/articles/delete',{id:$(this).attr('data-id')},function(data)
