@@ -1,8 +1,8 @@
 <div class="block">
 	<div class="header">
 		<div class="title">
-			<h6> شعبه های ثبت شده </h6>
-			<p> در این قسمت میتوانید شعبه های ثبت شده را مدیریت کنید </p>
+			<h6> اسلاید های ثبت شده </h6>
+			<p> در این قسمت میتوانید اسلاید های ثبت شده را مدیریت کنید </p>
 		</div>
 		<div class="more float-left">
 			<div class="item">

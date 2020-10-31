@@ -848,6 +848,8 @@ switch($urlPath[1])
 												$upload->process('public/home/media/slider');
 												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
 											}
+										}else{
+											unset($data['image']);
 										}
 										$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Slider',$data);
 										if($check)

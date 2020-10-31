@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 29, 2020 at 08:28 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Generation Time: Oct 31, 2020 at 07:29 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -75,13 +76,6 @@ CREATE TABLE IF NOT EXISTS `Articles` (
   UNIQUE KEY `link` (`link`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
--- Dumping data for table `Articles`
---
-
-INSERT INTO `Articles` (`id`, `title`, `link`, `description`, `demo`, `keywords`, `image`, `score`, `sCount`, `view`, `createdAt`, `updatedAt`) VALUES
-(2, 'این یک مقاله برای تست نظرات است', 'این-یک-مقاله-برای-تست-نظرات-است', '<p>این یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات است</p>\r\n', 'این یک مقاله برای تست نظرات استاین یک مقاله برای تست نظرات است', '[\"مقاله\", \"تست\", \"نظرات\", \"جدید\"]', 'public/home/media/articles/38d2b7319e693ec3e131dd22e55398c44ab4f116.jpg', 0, 0, 0, '2020-10-22 23:11:37', '2020-10-22 23:11:37');
-
 -- --------------------------------------------------------
 
 --
@@ -119,13 +113,6 @@ CREATE TABLE IF NOT EXISTS `Comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
--- Dumping data for table `Comments`
---
-
-INSERT INTO `Comments` (`id`, `name`, `surname`, `phoneNumber`, `email`, `text`, `articleId`, `status`, `createdAt`, `updatedAt`) VALUES
-(2, 'ارسلان', 'احدیان', '09152368096', NULL, 'این نظر برای تست است و دوست دارد که تست بشود', 2, '0', '2020-10-27 11:24:50', '2020-10-27 11:58:02');
-
 -- --------------------------------------------------------
 
 --
@@ -144,13 +131,6 @@ CREATE TABLE IF NOT EXISTS `ContactUs` (
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
-
---
--- Dumping data for table `ContactUs`
---
-
-INSERT INTO `ContactUs` (`id`, `name`, `surname`, `topic`, `phoneNumber`, `status`, `createdAt`, `updatedAt`) VALUES
-(1, 'ارسلان', 'احدیان', 'ارتقا سایت در جهت بهبود سایت', '09152368096', '0', '2020-10-29 10:54:44', '2020-10-29 11:18:26');
 
 -- --------------------------------------------------------
 
@@ -174,13 +154,6 @@ CREATE TABLE IF NOT EXISTS `News` (
   UNIQUE KEY `link` (`link`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
---
--- Dumping data for table `News`
---
-
-INSERT INTO `News` (`id`, `title`, `link`, `description`, `demo`, `keywords`, `image`, `archiveDate`, `createdAt`, `updatedAt`) VALUES
-(1, 'تست', 'تست', '<p>تست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی استتست برای خبر تست خیلی تست خوبی است شاید باورت نشود که خبر تست خیلی خبر خوبی است</p>\r\n', 'این خبر صرفا برای تست می باشد', '[\"تست\", \"خبر\", \"جدید\"]', 'public/home/media/news/5355325b3102176fd697e0a238d03edf5bbfffe5.png', '2020-10-20', '2020-10-19 15:27:40', '2020-10-20 11:52:51');
-
 -- --------------------------------------------------------
 
 --
@@ -200,12 +173,23 @@ CREATE TABLE IF NOT EXISTS `Projects` (
   UNIQUE KEY `link` (`link`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `Projects`
+-- Table structure for table `Slider`
 --
 
-INSERT INTO `Projects` (`id`, `title`, `link`, `description`, `image`, `createdAt`, `updatedAt`) VALUES
-(1, 'این پروژه صرفا برای تست است', 'این-پروژه-صرفا-برای-تست-است', '<p>این پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست استاین پروژه صرفا برای تست است</p>\r\n', 'public/home/media/projects/73f10ce67c63783a63328e46c7e873eeae99087f.jpg', '2020-10-26 12:36:17', '2020-10-26 12:36:17');
+DROP TABLE IF EXISTS `Slider`;
+CREATE TABLE IF NOT EXISTS `Slider` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(75) COLLATE utf8_persian_ci NOT NULL,
+  `description` tinytext COLLATE utf8_persian_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `status` enum('0','1') COLLATE utf8_persian_ci NOT NULL DEFAULT '1',
+  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

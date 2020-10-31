@@ -14,7 +14,7 @@ $(document).ready(function()
     })
 
     $("a[href='#edit']").click(function(){
-        $.post('/ajax/account/admin/students/getData',{id:$(this).attr('data-id')},function(data){
+        $.post('/ajax/account/admin/slider/getData',{id:$(this).attr('data-id')},function(data){
             data=$.parseJSON(data)[0]
             $("#edit input[name='data[title]']").val(data.title);
             $("#edit input[name='data[description]']").val(data.description);
@@ -24,8 +24,9 @@ $(document).ready(function()
     $(document).on('submit','#edit form',function(e)
     {
         e.preventDefault();
-        ajaxHandler($(this)).done(function(data)
+        ajaxHandler($(this),false).done(function(data)
         {
+            ajaxT.html(data)
             data=$.parseJSON(data)
             validationMessage(false,data.msg,data.type,data.err,'#edit .validation-message')
             if(data.err==null) setTimeout(function(){location.reload()},1500)
