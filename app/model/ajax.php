@@ -253,6 +253,8 @@ switch($urlPath[1])
 												$upload->process('public/home/media/news');
 												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
 											}
+										}else{
+											unset($data['image']);
 										}
 										$check=$db->where('id',$_SESSION['DATA']['News']['ID'])->update('News',$data);
 										if($check)
@@ -402,6 +404,8 @@ switch($urlPath[1])
 												$upload->process('public/home/media/articles');
 												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
 											}
+										}else{
+											unset($data['image']);
 										}
 										$check=$db->where('id',$_SESSION['DATA']['Articles']['ID'])->update('Articles',$data);
 										if($check)
@@ -591,8 +595,9 @@ switch($urlPath[1])
 												$upload->process('public/home/media/projects');
 												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
 											}
+										}else{
+											unset($data['image']);
 										}
-
 										$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Projects',$data);
 										if($check){
 											if(!empty($data['image'])) unlink($lastImage);
