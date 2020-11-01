@@ -685,9 +685,19 @@ switch($urlPath[1])
 										}
 									}
 									break;
+								case 'getData':
+									$data=$db->where('id',$_POST['id'])->getOne('Branches',[
+										'title','address'
+									]);
+									if(!empty($data))
+									{
+										$_SESSION['DATA']['Branches']['ID']=$_POST['id'];
+										echo json_encode($data);
+									}
+									break;
 								case 'edit':
 									if(!isset($_POST['Token']) || $_POST['Token']!=$_SESSION['Token']) die();
-									if(isset($_POST['data'])){
+									if(isset($_POST['data']) && isset($_SESSION['DATA']['Branches']['ID'])){
 										$data=$_POST['data'];
 										$validation=new Validation($data,[
 											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
@@ -701,7 +711,7 @@ switch($urlPath[1])
 												'data'=>null
 											]));
 										}
-										$check=$db->where('id',$_SESSION['DATA']['EDIT']['ID'])->update('Branches',$data);
+										$check=$db->where('id',$_SESSION['DATA']['Branches']['ID'])->update('Branches',$data);
 										if($check){
 											die(json_encode([
 												'type'=>'success',

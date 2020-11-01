@@ -35,7 +35,7 @@
 				</div>
                 <div class="col-sm-8">
                     <div class="input-mask required" mask-type="tag" mask-label="کلیدواژه ها">
-                        <input type="text" name="data[keywords][]" placeholder="کلید واژه ها را وارد کنید" autocomplete="off">
+                        <input type="text" name="data[keywords][]" placeholder="کلیدواژه ها را وارد کنید" autocomplete="off">
                     </div>
                     <p class="text-danger fsize-13 fykm"> * کلیدواژه ها را با دو فاصله از هم جدا کنید </p>
                 </div>
