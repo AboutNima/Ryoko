@@ -125,6 +125,7 @@
                     </li>
                     <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
                     <li><a href="/account/contactUs/list"><i class="far fa-phone-alt"></i><p>تماس با ما</p></a></li>
+                    <li><a href="/account/slider/list"><i class="far fa-layer-group"></i><p> اسلایدر </p></a></li>
                 </ul>
             </div>
         </div>
