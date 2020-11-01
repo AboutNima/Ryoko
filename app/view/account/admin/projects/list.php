@@ -1,9 +1,17 @@
 <div class="block">
 	<div class="header">
-		<div class="title">
-			<h6> پروژه های ثبت شده </h6>
-			<p> در این قسمت میتوانید پروژه های ثبت شده را مدیریت کنید </p>
-		</div>
+        <div class="title">
+            <h6> پروژه های ثبت شده </h6>
+            <p> در این قسمت میتوانید پروژه های ثبت شده را مدیریت کنید </p>
+        </div>
+        <div class="more float-left">
+            <div class="item">
+                <i class="fal fa-ellipsis-h"></i>
+            </div>
+            <div class="menu">
+                <a href="/account/projects/add"><span><i class="far fa-layer-plus"></i> ایجاد پروژه جدید </span></a>
+            </div>
+        </div>
 	</div>
 	<div class="body">
 		<div class="table-mask">
@@ -12,7 +20,7 @@
 				<tr>
 					<th> ردیف </th>
 					<th> عنوان </th>
-					<th> لینک </th>
+					<th> میزان بازدید </th>
 					<th> تاریخ ثبت </th>
 					<th> گزینه ها </th>
 				</tr>
@@ -25,9 +33,9 @@
 						?>
 						<tr>
 							<td><?php echo $num++ ?></td>
-							<td><?php echo $item->title; ?></td>
-							<td><?php echo $item->link; ?></td>
-							<td><?php echo $calendar->date("j F Y",$item->createdAt); ?></td>
+							<td><?php echo $item->title ?></td>
+							<td><span class="label label-primary"><?php echo $item->view ?></span></td>
+							<td><span class="label label-warning"><?php echo $calendar->date("j F Y",$item->createdAt) ?></span></td>
 							<td>
 								<div class="more">
 									<div class="item">

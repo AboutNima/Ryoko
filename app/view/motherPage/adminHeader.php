@@ -105,6 +105,7 @@
                             </div>
                         </span>
                     </li>
+                    <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
                     <li><span><i class="far fa-cogs"></i><p>پروژه ها</p>
                             <div class="dropdown">
                                 <ul>
@@ -114,18 +115,9 @@
                             </div>
                         </span>
                     </li>
-                    <li><span><i class="far fa-building"></i><p>شعبه ها</p>
-                            <div class="dropdown">
-                                <ul>
-                                    <li><a href="/account/branches/list"><i class="fas fa-circle"></i><p>لیست</p></a></li>
-                                    <li><a href="/account/branches/add"><i class="fas fa-circle"></i><p>ثبت</p></a></li>
-                                </ul>
-                            </div>
-                        </span>
-                    </li>
-                    <li><a href="/account/comments/list"><i class="far fa-comment-alt-check"></i><p>نظرات</p></a></li>
-                    <li><a href="/account/contactUs/list"><i class="far fa-phone-alt"></i><p>تماس با ما</p></a></li>
+                    <li><a href="/account/branches/list"><i class="far fa-building"></i><p>شعب و نمایندگی ها</p></a></li>
                     <li><a href="/account/slider/list"><i class="far fa-layer-group"></i><p> اسلایدر </p></a></li>
+                    <li><a href="/account/contactUs/list"><i class="far fa-phone-alt"></i><p>تماس با ما</p></a></li>
                 </ul>
             </div>
         </div>

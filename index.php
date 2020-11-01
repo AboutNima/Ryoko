@@ -138,7 +138,6 @@ switch($urlPath[0])
 					break;
 				case 'news':
 					switch($urlPath[2]){
-						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/news/list.php';
 							break;
@@ -156,13 +155,11 @@ switch($urlPath[0])
 									default:
 										die(header('location/404'));
 								}
-
-							}
+							}else die(header('location/404'));
 					}
 					break;
 				case 'articles':
 					switch($urlPath[2]){
-						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/articles/list.php';
 							break;
@@ -178,13 +175,12 @@ switch($urlPath[0])
 									default:
 										die(header('location:/404'));
 								}
-							}
+							}else die(header('location/404'));
 							break;
 					}
 					break;
 				case 'comments':
 					switch($urlPath[2]){
-						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/comments/list.php';
 							break;
@@ -197,13 +193,12 @@ switch($urlPath[0])
 									default:
 										die(header('location/404'));
 								}
-							}
+							}else die(header('location/404'));
 							break;
 					}
 					break;
 				case 'projects':
 					switch($urlPath[2]){
-						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/projects/list.php';
 							break;
@@ -219,29 +214,17 @@ switch($urlPath[0])
 									default:
 										die(header('location/404'));
 								}
-							}
+							}else die(header('location/404'));
 							break;
 					}
 					break;
 				case 'branches':
 					switch($urlPath[2]){
-						case '':
 						case 'list':
-							require_once 'app/controller/account/admin/branches/list.php';
-							break;
-						case 'add':
-							require_once 'app/controller/account/admin/branches/add.php';
+							require_once 'app/controller/account/admin/branches.php';
 							break;
 						default:
-							if(!empty($id=(int)$urlPath[2])){
-								switch($urlPath[3]){
-									case 'edit':
-										require_once 'app/controller/account/admin/branches/edit.php';
-										break;
-									default:
-										die(header('location/404'));
-								}
-							}
+							die(header('location/404'));
 							break;
 					}
 					break;
