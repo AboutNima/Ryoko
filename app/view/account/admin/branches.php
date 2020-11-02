@@ -21,6 +21,7 @@
 					<th> ردیف </th>
 					<th> عنوان </th>
 					<th> آدرس </th>
+					<th> توضیحات </th>
 					<th> تاریخ ثبت </th>
 					<th> گزینه ها </th>
 				</tr>
@@ -35,6 +36,7 @@
 							<td><?php echo $num++ ?></td>
 							<td><?php echo $item->title; ?></td>
 							<td><?php echo $item->address; ?></td>
+							<td><?php echo $item->description; ?></td>
 							<td><span class="label label-warning"><?php echo $calendar->date("j F Y",$item->createdAt); ?></span></td>
 							<td>
 								<div class="more">
@@ -79,6 +81,11 @@
                     <input type="text" name="data[address]" placeholder="آدرس شعبه را وارد کنید" autocomplete="off">
                 </div>
             </div>
+            <div class="col-12">
+                <div class="input-mask required" mask-type mask-label="توضیحات">
+                    <textarea name="data[description]" rows="3" placeholder="توضیحات شعبه را وارد کنید"></textarea>
+                </div>
+            </div>
         </div>
         <div class="clearFix">
             <div class="hr"></div>
@@ -101,6 +108,11 @@
             <div class="col-lg-7">
                 <div class="input-mask required" mask-type mask-label="آدرس">
                     <input type="text" name="data[address]" placeholder="آدرس شعبه را وارد کنید" autocomplete="off">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="input-mask required" mask-type mask-label="توضیحات">
+                    <textarea name="data[description]" rows="3" placeholder="توضیحات شعبه را وارد کنید" autocomplete="off"></textarea>
                 </div>
             </div>
         </div>

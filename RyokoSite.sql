@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 01, 2020 at 08:00 AM
+-- Generation Time: Nov 02, 2020 at 09:22 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Ryoko`
+-- Database: `RyokoSite`
 --
 
 -- --------------------------------------------------------
@@ -86,10 +86,11 @@ CREATE TABLE IF NOT EXISTS `Branches` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_persian_ci NOT NULL,
   `address` varchar(250) COLLATE utf8_persian_ci NOT NULL,
+  `description` tinytext COLLATE utf8_persian_ci NOT NULL,
   `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 -- --------------------------------------------------------
 
