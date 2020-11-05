@@ -657,7 +657,8 @@ switch($urlPath[1])
 										$data=$_POST['data'];
 										$validation=new Validation($data,[
 											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
-											'address'=>['required[آدرس]','length[آدرس,حداکثر,250]:max,250']
+											'address'=>['required[آدرس]','length[آدرس,حداکثر,250]:max,250'],
+											'description'=>['required[توضیحات]','length[توضیحات,حداکثر,255]:max,255']
 										]);
 										if($validation->getStatus()){
 											die(json_encode([
@@ -687,7 +688,7 @@ switch($urlPath[1])
 									break;
 								case 'getData':
 									$data=$db->where('id',$_POST['id'])->getOne('Branches',[
-										'title','address'
+										'title','address','description'
 									]);
 									if(!empty($data))
 									{
@@ -701,7 +702,8 @@ switch($urlPath[1])
 										$data=$_POST['data'];
 										$validation=new Validation($data,[
 											'title'=>['required[عنوان]','length[عنوان,حداکثر,255]:max,255'],
-											'address'=>['required[آدرس]','length[آدرس,حداکثر,250]:max,250']
+											'address'=>['required[آدرس]','length[آدرس,حداکثر,250]:max,250'],
+											'description'=>['required[توضیحات]','length[توضیحات,حداکثر,255]:max,255']
 										]);
 										if($validation->getStatus()){
 											die(json_encode([

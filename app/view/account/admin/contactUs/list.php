@@ -1,8 +1,8 @@
 <div class="block">
 	<div class="header">
 		<div class="title">
-			<h6></h6>
-			<p></p>
+			<h6> فرم های تماس با ما ثبت شده  </h6>
+			<p> در این قسمت میتوانید فرم های تماس با ما ثبت شده را مدیریت کنید </p>
 		</div>
 	</div>
 	<div class="body">

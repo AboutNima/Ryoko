@@ -17,6 +17,7 @@ $(document).ready(function()
             data=$.parseJSON(data)
             $("#edit input[name='data[title]']").val(data.title);
             $("#edit input[name='data[address]']").val(data.address);
+            $("#edit textarea").val(data.description);
             activePopup('#edit')
         })
     })
