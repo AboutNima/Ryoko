@@ -6,7 +6,7 @@
 host=localhost
 user=root
 pass=
-database=RyokoSite
+database=Ryoko
 port=3306
 charset=utf8
 socket=null

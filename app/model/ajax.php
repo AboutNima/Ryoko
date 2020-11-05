@@ -801,7 +801,7 @@ switch($urlPath[1])
 										if($upload->uploaded){
 											$upload->file_new_name_body=sha1(randomCode(10));
 											$upload->image_resize=true;
-											$upload->image_x=800;
+											$upload->image_x=1650;
 											$upload->image_y=600;
 											$upload->process('public/home/media/slider');
 											if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);
@@ -860,7 +860,7 @@ switch($urlPath[1])
 											if($upload->uploaded){
 												$upload->file_new_name_body=sha1(randomCode(10));
 												$upload->image_resize=true;
-												$upload->image_x=800;
+												$upload->image_x=1650;
 												$upload->image_y=600;
 												$upload->process('public/home/media/slider');
 												if($upload->processed) $data['image']=str_replace('\\','/',$upload->file_dst_pathname);

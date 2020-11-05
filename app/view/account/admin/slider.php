@@ -35,7 +35,7 @@
 						?>
 						<tr>
 							<td><?php echo $num++ ?></td>
-							<td><img src="/<?php echo $item->image ?>" style="width: 100px"></td>
+							<td><img src="/<?php echo $item->image ?>" width="100px"></td>
 							<td><?php echo $item->title; ?></td>
 							<td><?php echo $item->description; ?></td>
 							<td>

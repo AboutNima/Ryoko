@@ -1,6 +1,7 @@
 <div class="block">
 	<div class="header">
 		<h6>ثبت پروژه جدید</h6>
+        <p> در این قسمت می توانید پروژه جدید ثبت کنید </p>
 	</div>
 	<div class="body">
 		<div class="validation-message no-margin top"></div>

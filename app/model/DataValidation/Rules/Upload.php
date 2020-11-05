@@ -15,7 +15,7 @@ class Upload extends AbstractValidationRule{
 
 	public static function validationRule($value,$param)
 	{
-		if($value!='' && $value['error']!==4)
+		if($value!='' && $value['error']===0)
 		{
 			$param=explode(',',$param);
 			if(!isset($value[0]) || !is_array($value[0])) $value=[$value];
@@ -26,12 +26,10 @@ class Upload extends AbstractValidationRule{
 				if(!in_array($ext,array_map('strtolower',explode('.',$param[0]))))
 				{
 					return false;
-					break;
 				}
 				if(round($item['size']/1024)>$param[1])
 				{
 					return false;
-					break;
 				}
 			}
 		}
