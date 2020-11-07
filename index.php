@@ -54,6 +54,7 @@ foreach($urlPath as $item)
 		case 'comments': $urlCrt[]='نظرات';break;
 		case 'contactUs': $urlCrt[]='تماس با ما';break;
 		case 'slider': $urlCrt[]='اسلایدر';break;
+		case 'products': $urlCrt[]='محصولات'; break;
 		default: $urlCrt[]=$item;break;
 	}
 }
@@ -225,7 +226,6 @@ switch($urlPath[0])
 							break;
 						default:
 							die(header('location/404'));
-							break;
 					}
 					break;
 				case 'contactUs':
@@ -243,6 +243,16 @@ switch($urlPath[0])
 						case '':
 						case 'list':
 							require_once 'app/controller/account/admin/slider.php';
+							break;
+						default:
+							die(header('location/404'));
+					}
+					break;
+				case 'products':
+					switch($urlPath[2]){
+						case '':
+						case 'list':
+							require_once 'app/controller/account/admin/products.php';
 							break;
 						default:
 							die(header('location/404'));
